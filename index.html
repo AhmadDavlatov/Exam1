@@ -573,13 +573,13 @@
   <h2 class="text-[#0b3a5c] font-bold text-2xl sm:text-3xl mb-8">Наши партнеры</h2>
   <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
     <div class="border border-slate-200 rounded-md h-16 flex items-center justify-center"><img src="/src/Crunchbase.png" alt="Crunchbase" class="max-h-6" /></div>
-    <div class="border border-slate-200 rounded-md h-16 flex items-center justify-center"><img src="/src/DealRoom.png" alt="DealRoom" class="max-h-6" /></div>
-    <div class="border border-slate-200 rounded-md h-16 flex items-center justify-center"><img src="/src/Cool Company.png" alt="Cool Company" class="max-h-6" /></div>
-    <div class="border border-slate-200 rounded-md h-16 flex items-center justify-center"><img src="/src/3D Incubator.png" alt="3D Incubator" class="max-h-6" /></div>
+    <div class="border border-slate-200 rounded-md h-16 flex items-center justify-center"><img src="/src/Dealroom 1.png" alt="DealRoom" class="max-h-6" /></div>
+    <div class="border border-slate-200 rounded-md h-16 flex items-center justify-center"><img src="/src/Cool.png" alt="Cool Company" class="max-h-6" /></div>
+    <div class="border border-slate-200 rounded-md h-16 flex items-center justify-center"><img src="/src/Eurasia.png" alt="3D Incubator" class="max-h-6" /></div>
     <div class="border border-slate-200 rounded-md h-16 flex items-center justify-center"><img src="/src/Dtec.png" alt="Dtec" class="max-h-6" /></div>
-    <div class="border border-slate-200 rounded-md h-16 flex items-center justify-center"><img src="/src/Партнер.png" alt="Партнер" class="max-h-6" /></div>
-    <div class="border border-slate-200 rounded-md h-16 flex items-center justify-center"><img src="/src/Rakuten Ventures.png" alt="Rakuten Ventures" class="max-h-6" /></div>
-    <div class="border border-slate-200 rounded-md h-16 flex items-center justify-center"><img src="/src/Hub71.png" alt="Hub71" class="max-h-6" /></div>
+    <div class="border border-slate-200 rounded-md h-16 flex items-center justify-center"><img src="/src/Snake.png" alt="Партнер" class="max-h-6" /></div>
+    <div class="border border-slate-200 rounded-md h-16 flex items-center justify-center"><img src="/src/Racuten.png" alt="Rakuten Ventures" class="max-h-6" /></div>
+    <div class="border border-slate-200 rounded-md h-16 flex items-center justify-center"><img src="/src/Racuten.png" alt="Hub71" class="max-h-6" /></div>
   </div>
 </section>
 
@@ -610,7 +610,7 @@
       </div>
     </article>
     <article class="border border-slate-100 rounded-lg overflow-hidden">
-      <img src="/src/Webinar.png" alt="Вебинар" class="w-full h-36 object-cover" />
+      <img src="/src/Vebinar.png" alt="Вебинар" class="w-full h-36 object-cover" />
       <div class="p-4">
         <h4 class="text-[#0b3a5c] font-medium mb-1">Вебинар по особенностям рынков Ближнего Востока</h4>
         <p class="text-slate-500 text-sm mb-3">Поговорим с экспертами рынка в формате дискуссии</p>
@@ -688,6 +688,45 @@
   </div>
 </footer>
 
+<script>
+  document.getElementById('burgerBtn').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('hidden');
+  });
+
+  document.querySelectorAll('.market-tab-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.market-tab-btn').forEach((b) => b.classList.remove('active-tab'));
+      btn.classList.add('active-tab');
+      const market = btn.dataset.market;
+      document.querySelectorAll('.market-panel').forEach((panel) => {
+        panel.classList.toggle('hidden', panel.dataset.marketPanel !== market);
+      });
+    });
+  });
+
+  document.querySelectorAll('.module-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const content = btn.nextElementSibling;
+      const chevron = btn.querySelector('.module-chevron');
+      content.classList.toggle('hidden');
+      chevron.classList.toggle('rotate-180');
+    });
+  });
+
+  const track = document.getElementById('expertsTrack');
+  document.getElementById('expertsPrev').addEventListener('click', () => track.scrollBy({ left: -240, behavior: 'smooth' }));
+  document.getElementById('expertsNext').addEventListener('click', () => track.scrollBy({ left: 240, behavior: 'smooth' }));
+</script>
+
+<style>
+  .market-tab-btn.active-tab {
+    background-color: #0ea5e9;
+    color: white;
+  }
+  .market-tab-btn {
+    color: #475569;
+  }
+</style>
 
 </body>
 </html>
